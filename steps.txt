@@ -1,0 +1,12 @@
+>node server.js
+
+
+open in browser
+
+ http://localhost:8083/index.htm
+
+observe browser output and console window output
+
+>node client.js
+
+observe console windows both server and client seperately

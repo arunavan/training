@@ -1,0 +1,14 @@
+steps to run 
+
+-> node main.js
+once server is started open browser
+
+
+->node file.js
+read file and display result at console
+==========================
+REPL terminal
+Read Evaluate Print Loop 
+->node
+>5+6
+
