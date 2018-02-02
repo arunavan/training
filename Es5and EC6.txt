@@ -1,0 +1,31 @@
+var in EC5
+
+var x=10;
+
+
+let x=10;   //can be changed
+const x=10; // cannot be changed
+
+
+in EC5
+function(args)
+{
+
+
+}
+
+in EC6
+
+(args) =>  {
+
+
+}
+
+function(x)
+{
+   return x*2
+}
+
+{} is optional
+
+x=> x*2
