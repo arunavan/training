@@ -1,20 +1,19 @@
-var http = require('http');
-var fs = require('fs');
-var url = require('url');
-// Create a server
-http.createServer( function (request, response) {  
-     var pathname = url.parse(request.url).pathname;
-      console.log("Request for " + pathname + " received.");
-      fs.readFile(pathname.substr(1), function (err, data) {
-      if (err) {
-         console.log(err);
-        response.writeHead(404, {'Content-Type': 'text/html'});
-      }else {	
-      response.writeHead(200, {'Content-Type': 'text/html'});	
-     response.write(data.toString());		
-      }
-       response.end();
-   });   
-}).listen(8083);
-// Console will print the message
-console.log('Server running at http://127.0.0.1:8083/');
+var express = require('express');
+var app = express();
+var fs = require("fs");
+
+app.get('/listUsers', function (req, res) {
+   fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+       console.log( data );
+       res.end( data );
+   });
+})
+
+var server = app.listen(8081, function () {
+
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log("Example app listening at http://%s:%s", host, port)
+
+})
