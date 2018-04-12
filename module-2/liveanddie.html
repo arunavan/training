@@ -1,0 +1,36 @@
+<html>
+<head>
+<title>the title</title>
+   <script type="text/javascript" 
+   src="jquery-1.7.2.min.js"></script>
+   <script type="text/javascript" language="javascript">
+   
+   $(document).ready(function() {
+
+       function aClick() {
+         $("div").show().fadeOut("slow");
+       }
+       $("#bind").click(function () {
+         $("#theone").live("click", aClick)
+                  .text("Can Click!");
+       });
+       $("#unbind").click(function () {
+         $("#theone").die("click", aClick)
+                  .text("Does nothing...");
+       });
+
+   });
+
+   </script>
+   <style>
+     button { margin:5px; }
+     button#theone { color:red; background:yellow; }
+  </style>
+</head>
+<body>
+    <button id="theone">Does nothing...</button>
+    <button id="bind">Bind Click</button>
+    <button id="unbind">Unbind Click</button>
+    <div style="display:none;">Click!</div>
+</body>
+</html>

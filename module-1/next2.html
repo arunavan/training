@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>the title</title>
+   <script type="text/javascript" 
+   src="jquery-1.7.2.min.js"></script>
+   <script type="text/javascript" language="javascript">
+
+     $(document).ready(function(){
+       $("p.hilight").next().addClass("hilight");
+     });
+
+  </script>
+  <style>
+      .hilight { background:yellow; }
+  </style>
+
+</head>
+<body>
+  <p>Hello</p>
+  <p class="hilight">Hello Again</p>
+  <div><span>And Again</span></div>
+</body>
+</html>

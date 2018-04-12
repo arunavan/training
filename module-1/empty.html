@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  p { background:yellow; }
+</style>
+  <script src="jquery-1.7.2.min.js"></script>
+</head>
+<body>
+  <p>
+  Hello, <span>Person</span> <a href="javascript:;">and person</a>
+</p>
+
+<h1>Welcome to Jquery</h1>
+
+<button>Call empty() on above paragraph</button>
+
+<script>
+  $("button").click(function () {
+    $("p").empty();
+    $("h1").empty();
+  });
+</script>
+
+</body>
+</html>
