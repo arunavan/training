@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
+</head>
+<body ng-app="myApp">
+  <div ng-controller="MyCtrl">
+    <input type="file" 
+           onchange="angular.element(this).scope().setFile(this)">
+    {{theFile.name}}
+</div>
+<script type='text/javascript'>
+var myApp = angular.module('myApp', []);
+myApp.controller('MyCtrl', function($scope) {
+    $scope.setFile = function(element) {
+        $scope.$apply(function($scope) {
+            $scope.theFile = element.files[0];
+        });
+    };
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js">
+</script><!--   w w w .  j  a  va2  s.  c  o  m-->
+</head>
+<body>
+    <div data-ng-controller="SimpleController">
+        Name:<input type="text" data-ng-model="inputData.name"/>
+        City:<input type="text" data-ng-model="inputData.city"/>
+        <button class="btn btn-primary" data-ng-click="addItem()">Add</button>
+        <ul>
+            <li data-ng-repeat="myItem in items">{{ myItem.name +" - "+ myItem.city}}</li>
+        </ul>
+    </div>
+    <script>
+        function SimpleController($scope) {
+            $scope.items = [
+          { name: 'XML',      city: 'W3C' },
+                { name: 'Java',     city: 'Oracle' },
+                { name: 'CSS',      city: 'W3c' },
+                { name: 'Tutorial', city: 'java2s.com' }
+            ];
+    
+            $scope.addItem = function () {
+                $scope.items.push({ name: $scope.inputData.name, 
+                                    city: $scope.inputData.city });
+            };
+        }
+    </script>
+</body>
+</html>

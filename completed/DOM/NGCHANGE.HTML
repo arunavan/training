@@ -1,0 +1,24 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.js"></script>
+</head>
+<body>
+  <div ng-controller="MyController">
+    <p>type any number into the text field</p>
+    <input type="text" ng-model="x" ng-change="change()" />
+    <code>{{ output }}</code>
+  </div>
+  
+<script>
+    angular.module('myApp', [])
+    .controller('MyController', function($scope) {
+      
+      $scope.change = function() {
+           $scope.output = Number($scope.x) +" is the new value";
+      };
+    });
+  </script>
+
+</body>
+</html>

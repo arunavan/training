@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.js"></script>
+</head>
+<body ng-app="myModule">
+  <div ng-controller="MyCtrl">
+    <input type="text" placeholder="Name" ng-model="name"/>
+    <p>{{greeting()}}</p>
+</div>
+<script type='text/javascript'>
+var myModule = angular.module('myModule', [])
+    .controller('MyCtrl', ['$scope', function ($scope) {
+
+        $scope.greeting = function(){
+            return $scope.$eval('"Hello "+name');
+        };
+    }]);
+</script>
+</body>
+</html>

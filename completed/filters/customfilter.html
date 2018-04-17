@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html  ng-app="myApp">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+</head>
+<body ng-app>
+   <h2>{{ 'this is a test' | capitalize }}</h2>
+  <script>
+    angular.module('myApp', ['myApp.filters']);
+
+    angular.module('myApp.filters', [])
+    .filter('capitalize', function() {
+      return function(input) {
+        // input will be the string we pass in
+        if (input) {
+          return input[0].toUpperCase() + input.slice(1);
+        }
+      }
+    });
+  </script>
+     
+</body>
+</html>

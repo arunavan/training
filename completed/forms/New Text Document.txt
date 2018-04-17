@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.js"></script>
+</head>
+<body>
+  
+<form name="signup_form" novalidate ng-submit="signupForm()">
+    <div class="row">
+      <div class="large-12 columns">
+        <label>Your name</label>
+        <input type="text" 
+            placeholder="Name" 
+            name="name" 
+            ng-model="signup.name" 
+            ng-minlength=3 
+            ng-maxlength=20 required />
+       <div class="error" 
+            ng-show="signup_form.name.$dirty && signup_form.name.$invalid">
+        <small class="error" 
+            ng-show="signup_form.name.$error.required">
+            Your name is required.
+        </small>
+    <button type="submit" ng-disabled="signup_form.$invalid" class="button radius">Submit</button>
+</form>
+<script id="jsbin-javascript">
+angular.module('myApp', [])
+.directive('ensureUnique', ['$http', function($http) {
+  return {
+    require: 'ngModel',
+    link: function(scope, ele, attrs, c) {
+      scope.$watch(attrs.ngModel, function() {
+        $http({
+          method: 'POST',
+          url: '/api/check/' + attrs.ensureUnique,
+          data: {'field': attrs.ensureUnique}
+        }).success(function(data, status, headers, cfg) {
+          c.$setValidity('unique', data.isUnique);
+        }).error(function(data, status, headers, cfg) {
+          c.$setValidity('unique', false);
+        });
+      });
+    }
+  };
+}]);
+</script>
+</body>
+</html>
